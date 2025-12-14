@@ -1,5 +1,3 @@
-mkdir build
-Copy-Item src/ -Destination build/ -Recurse
-Copy-Item data/ -Destination build/ -Recurse
-cd build
-cmake ..
+mkdir build -Force
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
