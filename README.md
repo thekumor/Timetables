@@ -25,7 +25,7 @@ Key features include:
 This project is ideal for anyone looking to stay organized and maintain a schedule without the
 hassle of manual planning.
 
-![Prompt interface](images/github/UI.png)
+![Prompt interface](images/github/ui.png)
 ![Generator result](images/github/output.png)
 
 ## Target Audience
