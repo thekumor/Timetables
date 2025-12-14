@@ -25,6 +25,9 @@ Key features include:
 This project is ideal for anyone looking to stay organized and maintain a schedule without the
 hassle of manual planning.
 
+**Path to Pdflatex must be specified in data/path.txt, otherwise program will be unable to generate
+an output. Example path is: C:\Users\theku\miniforge3\pkgs\miktex-24.4-hcfcfb64_1\Library\miktex\texmfs\install\miktex\bin\x64**
+
 ![Prompt interface](images/github/ui.png)
 ![Generator result](images/github/output.png)
 
