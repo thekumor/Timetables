@@ -49,7 +49,7 @@ int main()
 	// ------------------------------------
 	std::uint8_t startHour = 7, endHour = 20;
 	Command time("time", 2);
-	time.SetCallback([&startHour, &endHour, &tasks, startDate, endDate, &description](File* f, const std::vector<std::string>& params)
+	time.SetCallback([&startHour, &endHour, &tasks, &startDate, &endDate, &description](File* f, const std::vector<std::string>& params)
 	{
 		if (params.size() < 2) return;
 
