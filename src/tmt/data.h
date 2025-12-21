@@ -1,3 +1,16 @@
+// ================================================
+// 
+//	Project: Timetables
+// 
+//	File: data.h
+//	Desc: Contains data file handling and command
+//	interface.
+// 
+//	Date: 2025/12/21 2:09 PM
+//	Authors: The Kumor
+// 
+// ================================================
+
 #pragma once
 
 // STL

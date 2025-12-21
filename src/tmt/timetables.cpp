@@ -1,8 +1,13 @@
 // ================================================
 // 
 //	Project: Timetables
-//	Tool that helps create timetables.
-//	by The Kumor
+// 
+//	File: timetables.cpp
+//	Desc: Entry point for a tool that tells you
+//	whether your vegetable garden is valid or not.
+// 
+//	Date: 2025/12/21 2:07 PM
+//	Authors: The Kumor
 // 
 // ================================================
 

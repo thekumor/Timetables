@@ -1,3 +1,15 @@
+// ================================================
+// 
+//	Project: Timetables
+// 
+//	File: util.h
+//	Desc: Contains error handling and colors.
+// 
+//	Date: 2025/12/21 2:08 PM
+//	Authors: The Kumor
+// 
+// ================================================
+
 #pragma once
 
 // STL
