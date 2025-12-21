@@ -5,7 +5,8 @@
 //	File: util.h
 //	Desc: Contains error handling and colors.
 // 
-//	Date: 2025/12/21 2:08 PM
+//	Modified: 2025/12/21 2:08 PM
+//	Created: 2025/12/12 9:17 PM
 //	Authors: The Kumor
 // 
 // ================================================

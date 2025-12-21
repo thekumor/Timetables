@@ -5,8 +5,9 @@
 //	File: timetables.cpp
 //	Desc: Entry point for a tool that tells you
 //	whether your vegetable garden is valid or not.
-// 
-//	Date: 2025/12/21 2:07 PM
+//
+//	Modified: 2025/12/21 8:25 PM
+//	Created: 2025/12/12 9:17 PM
 //	Authors: The Kumor
 // 
 // ================================================
@@ -21,7 +22,7 @@
 #include <tmt/util.h>
 
 #define TMT_PROMPT() SetConsoleText(TMT_COLOR_DEFAULT); std::cout << "(Timetables) > "
-#define TMT_VERSION "1.0"
+#define TMT_VERSION "1.1"
 
 int main()
 {
@@ -33,8 +34,8 @@ int main()
 	};
 	std::vector<Task> tasks = { };
 
-	std::string startDate = "7/12/2025";
-	std::string endDate = "14/12/2025";
+	std::string startDate = "22/12/2025";
+	std::string endDate = "28/12/2025";
 	std::string description = "A regular week.";
 
 	// ------------------------------------
@@ -275,7 +276,7 @@ int main()
 			(numMonth < 10 ? "0" : "") + month + "/" +
 			year;
 
-		for (std::int32_t i = 0; i < 7; i++)
+		for (std::int32_t i = 0; i < 6; i++)
 		{
 			bool isLongMonth = (numMonth == 1 || numMonth == 3 || numMonth == 5 || numMonth == 7 || numMonth == 8 || numMonth == 10 || numMonth == 12);
 			bool isShortMonth = numMonth == 2;
@@ -360,7 +361,7 @@ int main()
 
 	std::string input;
 
-	std::cout << "Timetables (c) 2025-2026 by The Kumor\n" << "Version " << TMT_VERSION << "\n" << std::endl;
+	std::cout << "Timetables (2025-2026) by The Kumor\n" << "Version " << TMT_VERSION << "\n" << std::endl;
 
 	TMT_PROMPT();
 	while (std::getline(std::cin, input))
