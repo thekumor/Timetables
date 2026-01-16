@@ -6,7 +6,7 @@
 //	Desc: Entry point for a tool that tells you
 //	whether your vegetable garden is valid or not.
 //
-//	Modified: 2025/12/21 8:25 PM
+//	Modified: 2026/01/16 8:51 AM
 //	Created: 2025/12/12 9:17 PM
 //	Authors: The Kumor
 // 
@@ -22,7 +22,7 @@
 #include <tmt/util.h>
 
 #define TMT_PROMPT() SetConsoleText(TMT_COLOR_DEFAULT); std::cout << "(Timetables) > "
-#define TMT_VERSION "1.1"
+#define TMT_VERSION "1.2"
 
 int main()
 {
@@ -34,8 +34,8 @@ int main()
 	};
 	std::vector<Task> tasks = { };
 
-	std::string startDate = "22/12/2025";
-	std::string endDate = "28/12/2025";
+	std::string startDate = "19/01/2026";
+	std::string endDate = "25/01/2026";
 	std::string description = "A regular week.";
 
 	// ------------------------------------
@@ -64,7 +64,7 @@ int main()
 
 		f->Reset();
 
-		std::string defaultLine = "\\textbf{} & - & - & - & - & - & - & - \\\\ \\hline";
+		std::string defaultLine = "\\textbf{} &&&&&&&\\\\ \\hline";
 
 		std::int32_t j = 0;
 		for (std::int32_t i = startHour; i <= endHour; i++, j++)
@@ -76,7 +76,7 @@ int main()
 			{
 				if (k.Hour == std::to_string(i))
 				{
-					std::int32_t limit = 0;
+					std::int32_t limit = 1;
 
 					if (k.Day == "Monday")
 						limit = 1;
@@ -101,8 +101,8 @@ int main()
 						l++;
 					}
 
-					line.erase(pos + 2, 1);
-					line.insert(pos + 2, k.Name);
+					// line.erase(pos + 2, 1);
+					line.insert(pos + 1, k.Name);
 				}
 			}
 
@@ -199,6 +199,16 @@ int main()
 		std::string name = params[0];
 		std::string day = params[1];
 		std::string hour = params[2];
+
+		if (day != "Monday" && day != "Tuesday" && day != "Wednesday" && 
+			day != "Thursday" && day != "Friday" && day != "Saturday" &&
+			day != "Sunday")
+		{
+			SetConsoleText(TMT_COLOR_BAD);
+			std::cout << "Invalid day '" << day << "' provided!" << std::endl;
+			SetConsoleText(TMT_COLOR_DEFAULT);
+			return;
+		}
 
 		std::string hourTo = hour;
 		if (params.size() > 3)
