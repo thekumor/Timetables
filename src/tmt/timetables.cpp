@@ -3,8 +3,9 @@
 //	Project: Timetables
 // 
 //	File: timetables.cpp
-//	Desc: Entry point for a tool that tells you
-//	whether your vegetable garden is valid or not.
+//	Desc: Entry point for timetable tool. Commands
+//	and their functionality are defined here, as
+//	well as main loop.
 //
 //	Modified: 2026/01/16 8:51 AM
 //	Created: 2025/12/12 9:17 PM
