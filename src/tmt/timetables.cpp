@@ -7,7 +7,7 @@
 //	and their functionality are defined here, as
 //	well as main loop.
 //
-//	Modified: 2026/02/09 3:13 PM
+//	Modified: 2026/02/09 3:36 PM
 //	Created: 2025/12/12 9:17 PM
 //	Authors: The Kumor
 // 
@@ -17,13 +17,14 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
+#include <algorithm>
 
 // Timetables
 #include <tmt/data.h>
 #include <tmt/util.h>
 
 #define TMT_PROMPT() SetConsoleText(TMT_COLOR_DEFAULT); std::cout << "(Timetables) > "
-#define TMT_VERSION "1.2"
+#define TMT_VERSION "1.3pre"
 
 int main()
 {
@@ -79,19 +80,21 @@ int main()
 				{
 					std::int32_t limit = 1;
 
-					if (k.Day == "Monday")
+					std::string& day = k.Day;
+
+					if (day == "mon")
 						limit = 1;
-					else if (k.Day == "Tuesday")
+					else if (day == "tue")
 						limit = 2;
-					else if (k.Day == "Wednesday")
+					else if (day == "wed")
 						limit = 3;
-					else if (k.Day == "Thursday")
+					else if (day == "thu")
 						limit = 4;
-					else if (k.Day == "Friday")
+					else if (day == "fri")
 						limit = 5;
-					else if (k.Day == "Saturday")
+					else if (day == "sat")
 						limit = 6;
-					else if (k.Day == "Sunday")
+					else if (day == "sun")
 						limit = 7;
 
 					size_t pos = 0;
@@ -199,14 +202,24 @@ int main()
 
 		std::string name = params[0];
 		std::string day = params[1];
+		std::string orgDay = day;
 		std::string hour = params[2];
 
-		if (day != "Monday" && day != "Tuesday" && day != "Wednesday" && 
-			day != "Thursday" && day != "Friday" && day != "Saturday" &&
-			day != "Sunday")
+		day.erase(3, day.length() - 3);
+		std::transform(day.begin(), day.end(), day.begin(), [](unsigned char c) { return std::tolower(c); });
+
+		if (
+			day != "mon" &&
+			day != "tue" &&
+			day != "wed" &&
+			day != "thu" &&
+			day != "fri" &&
+			day != "sat" &&
+			day != "sun"
+		)
 		{
 			SetConsoleText(TMT_COLOR_BAD);
-			std::cout << "Invalid day '" << day << "' provided!" << std::endl;
+			std::cout << "Invalid day '" << orgDay << "' ('" << day << "') provided!" << std::endl;
 			SetConsoleText(TMT_COLOR_DEFAULT);
 			return;
 		}
@@ -251,6 +264,9 @@ int main()
 		std::string day = params[0];
 		std::string hour = params[1];
 
+		day.erase(3, day.size() - 3);
+		std::transform(day.begin(), day.end(), day.begin(), [](unsigned char c) { return std::tolower(c); });
+
 		std::string hourTo = params[1];
 		if (params.size() > 2)
 			hourTo = params[2];
@@ -258,11 +274,13 @@ int main()
 		for (std::int32_t i = atoi(hour.c_str()); i <= atoi(hourTo.c_str()); i++)
 		{
 			for (std::vector<Task>::iterator it = tasks.begin(); it != tasks.end(); it++)
+			{
 				if (it->Day == day && it->Hour == std::to_string(i))
 				{ // Means it's taken.
 					tasks.erase(it);
 					break;
 				}
+			}
 		}
 	});
 
