@@ -7,7 +7,7 @@
 //	and their functionality are defined here, as
 //	well as main loop.
 //
-//	Modified: 2026/01/16 8:51 AM
+//	Modified: 2026/02/09 3:13 PM
 //	Created: 2025/12/12 9:17 PM
 //	Authors: The Kumor
 // 
@@ -329,7 +329,12 @@ int main()
 
 		description = "";
 		for (auto& k : params)
-			description += k + " ";
+		{
+			if (k == "&")
+				description += "\\& ";
+			else
+				description += k + " ";
+		}
 
 		description.erase(description.size() - 1, 1);
 	});
