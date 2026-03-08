@@ -57,6 +57,7 @@ Features include:
 	- desc [text]
 	- erase [task]
 	- clear
+	- out [hour] [hourEnd]
 
 ## Software & Hardware Requirements
 Microsoft Windows 10/11. Possible to run on a potato.

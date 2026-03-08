@@ -1,3 +1,24 @@
+// ==================================================
+//
+//	Project: Timetables
+//
+//	Module: Application
+//	Component: I/O
+//	File: data.cpp
+//
+//  Purpose:
+//  Implements the file-processing and command
+//  execution infrastructure declared in data.h.
+//
+//  Notes:
+//  Contains the File implementation and the
+//  Command execution system used by the
+//  application.
+//
+//	Author(s): The Kumor
+//
+// ==================================================
+
 #include "data.h"
 
 namespace tmt
@@ -49,6 +70,24 @@ namespace tmt
 	void File::PushLine(const std::string& line, std::int32_t i)
 	{
 		m_Content.insert(m_Content.begin() + i, line);
+	}
+
+	void File::SetLine(std::uint32_t line, const std::string& str)
+	{
+		line--;
+		if (line >= m_Content.size() || line < 0) return;
+
+		m_Content[line] = str;
+	}
+
+	void File::SetLine(const std::string& where, const std::string& str)
+	{
+		for (std::vector<std::string>::iterator it = m_Content.begin(); it != m_Content.end(); it++)
+			if (*it == where)
+			{
+				*it = str;
+				break;
+			}
 	}
 
 	void File::Reset()

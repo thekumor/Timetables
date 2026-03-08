@@ -1,15 +1,23 @@
-// ================================================
-// 
+// ==================================================
+//
 //	Project: Timetables
-// 
+//
+//	Module: Application
+//	Component: Utility
 //	File: util.h
-//	Desc: Contains error handling and colors.
-// 
-//	Modified: 2025/12/21 2:08 PM
-//	Created: 2025/12/12 9:17 PM
-//	Authors: The Kumor
-// 
-// ================================================
+//
+//  Purpose:
+//  Provides utility functions for the application.
+//
+//  Notes:
+//  Contains helpers for error handling and
+//  console text formatting. Defines default
+//  input/output file paths and console color
+//  constants.
+//
+//	Author(s): The Kumor
+//
+// ==================================================
 
 #pragma once
 
@@ -20,7 +28,7 @@
 #include <windows.h>
 
 #define TMT_INPUT_FILE "data/base.tex"
-#define TMT_OUTPUT_FILE "data/output.tex"
+#define TMT_OUPUT_FILE "data/output.tex"
 
 #define TMT_COLOR_DEFAULT 7
 #define TMT_COLOR_BAD 4
