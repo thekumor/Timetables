@@ -1,16 +1,24 @@
-// ================================================
-// 
+// ==================================================
+//
 //	Project: Timetables
-// 
+//
+//	Module: Application
+//	Component: I/O
 //	File: data.h
-//	Desc: Contains data file handling and command
-//	interface.
-// 
-//	Modified: 2025/12/21 2:09 PM
-//	Created: 2025/12/12 9:17 PM
-//	Authors: The Kumor
-// 
-// ================================================
+//
+//  Purpose:
+//  Defines the file-processing and command execution
+//  infrastructure used by the application.
+//
+//  Notes:
+//  Provides a File abstraction for loading and
+//  modifying text content. Includes a Command
+//  system that applies parameterized operations
+//  to a File instance.
+//
+//	Author(s): The Kumor
+//
+// ==================================================
 
 #pragma once
 
@@ -41,6 +49,8 @@ namespace tmt
 		void Load(const std::string& path);
 		void Output(const std::string& path);
 		void PushLine(const std::string& line, std::int32_t i);
+		void SetLine(std::uint32_t line, const std::string& str);
+		void SetLine(const std::string& where, const std::string& str);
 		void Reset();
 
 	private:

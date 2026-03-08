@@ -1,3 +1,24 @@
+// ==================================================
+//
+//	Project: Timetables
+//
+//	Module: Application
+//	Component: Utility
+//	File: util.cpp
+//
+//  Purpose:
+//  Implements the utility functions declared in
+//	util.h.
+//
+//  Notes:
+//  Provides error handling via MessageBox and
+//	console text formatting using Windows console 
+//  colors.
+//
+//	Author(s): The Kumor
+//
+// ==================================================
+
 #include "util.h"
 
 namespace tmt

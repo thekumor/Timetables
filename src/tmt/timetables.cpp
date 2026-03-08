@@ -1,17 +1,25 @@
-// ================================================
-// 
-//	Project: Timetables
-// 
-//	File: timetables.cpp
-//	Desc: Entry point for timetable tool. Commands
-//	and their functionality are defined here, as
-//	well as main loop.
+// ==================================================
 //
-//	Modified: 2026/02/09 3:36 PM
-//	Created: 2025/12/12 9:17 PM
-//	Authors: The Kumor
-// 
-// ================================================
+//	Project: Timetables
+//
+//	Module: Application
+//	Component: Main
+//	File: timetables.cpp
+//
+//  Purpose:
+//  Implements the main command-line interface for
+//  the Timetables application.
+//
+//  Notes:
+//  Provides an interactive command interpreter
+//  that allows users to define, modify, and manage
+//  scheduled tasks. Integrates the File and Command
+//  systems to generate timetable content and compile
+//  the resulting LaTeX document into a PDF.
+//
+//	Author(s): The Kumor
+//
+// ==================================================
 
 // STL
 #include <iostream>
@@ -24,7 +32,7 @@
 #include <tmt/util.h>
 
 #define TMT_PROMPT() SetConsoleText(TMT_COLOR_DEFAULT); std::cout << "(Timetables) > "
-#define TMT_VERSION "1.3pre"
+#define TMT_VERSION "1.3"
 
 int main()
 {
@@ -136,7 +144,7 @@ int main()
 	Command gen("gen", 2);
 	gen.SetCallback([](File* f, const std::vector<std::string>& params)
 	{
-		std::string param = TMT_OUTPUT_FILE;
+		std::string param = TMT_OUPUT_FILE;
 		if (params.size() != 0)
 			param = params[0];
 
@@ -387,8 +395,21 @@ int main()
 	});
 
 	// ------------------------------------
+	// out command
+	// ------------------------------------
+	Command out("out", 2);
+	out.SetCallback([&](File* f, const std::vector<std::string>& params)
+	{
+		if (params.size() < 2)
+			return;
 
-	std::vector<Command> commands = { echo, time, gen, exitCmd, add, rem, date, desc, erase, clear };
+		time.Run(f, { params[0], params[1] });
+		gen.Run(f, {});
+	});
+
+	// ------------------------------------
+
+	std::vector<Command> commands = { echo, time, gen, exitCmd, add, rem, date, desc, erase, clear, out };
 
 	File file;
 	file.Load(TMT_INPUT_FILE);
