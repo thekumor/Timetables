@@ -3,7 +3,7 @@ Tool that helps create timetables.
 
 ## Background
 In today’s fast-paced environment, effective time management has become essential for
-productivity and personal well-being. Many individuals and organizations struggle to plan
+productivity and personal well-being. Many individuals struggle to plan
 their daily and weekly activities efficiently, often relying on manual methods such as paper
 schedules or scattered digital tools. These approaches can lead to missed deadlines,
 overlapping commitments, and increased stress.
@@ -35,13 +35,10 @@ C:\Users\theku\miniforge3\pkgs\miktex-24.4-hcfcfb64_1\Library\miktex\texmfs\inst
 ## Target Audience
 The program is intended for a wide range of users, including:
 
-- Students, who need to manage class schedules, study time, assignments, and
-extracurricular activities.
-- Working professionals, who must balance meetings, deadlines, and personal
-commitments.
-- Small teams or organizations, seeking a simple tool for planning and coordinating
-weekly tasks.
-- Individuals, looking to improve personal time management and daily productivity.
+- Students,
+- Working professionals,
+- Small teams or organizations,
+- Other individuals
 
 ## Features and Functionalities
 Features include:
